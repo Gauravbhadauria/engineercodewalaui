@@ -1,4 +1,4 @@
-import {View, Text, Alert} from 'react-native';
+import {View, Text, Alert, SafeAreaView} from 'react-native';
 import React, {useState} from 'react';
 import CustomTextinput from './src/components/CustomTextinput';
 import CustomButton from './src/components/CustomButton';
@@ -7,55 +7,60 @@ import Screen1 from './Screen1';
 import Screen2 from './Screen2';
 import Screen3 from './Screen3';
 import Screen4 from './Screen4';
+import CustomWelcome from './src/components/CustomWelcome';
+import { Header } from './src/Index';
+
+
 
 const App = () => {
   const [name, setName] = useState('');
   const [selectedTab, setSelectedTab] = useState(0);
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      
-       {/* {selectedTab==0?<Screen1/>:selectedTab==1?<Screen2/>:selectedTab==2?<Screen3/>:<Screen4/>}
-      <CustomBottamNav
-       
-        tabs={[
+    <SafeAreaView style={{flex: 1}}>
+      {/* <CustomWelcome
+
+        screens={[
           {
-            icon: require('./icon1.png'),
-            activeIcon: require('./icon1_active.png'),
-            title: 'Home',
-            size: 30,
-            fontSize: 14,
+            image: require('./slide1.jpg'),
+            title: 'Slide 1',
+            desc: 'slide 1 description',
           },
           {
-            icon: require('./icon2.png'),
-            activeIcon: require('./icon2active.png'),
-            title: 'Explore',
-            size: 30,
-            fontSize: 14,
+            image: require('./slide2.png'),
+            title: 'Slide 1',
+            desc: 'slide 1 description',
           },
           {
-            icon: require('./icon3.png'),
-            activeIcon: require('./icon3active.png'),
-            title: 'Saved',
-            size: 30,
-            fontSize: 14,
+            image: require('./slide1.jpg'),
+            title: 'Slide 3',
+            desc: 'slide 3 description',
           },
           {
-            icon: require('./icon4.png'),
-            activeIcon: require('./icon4active.png'),
-            title: 'Profiile',
-            size: 30,
-            fontSize: 14,
+            image: require('./slide2.png'),
+            title: 'Slide 4',
+            desc: 'slide 4 description',
           },
         ]}
-        onSelected={index => {
-          setSelectedTab(index);
+        onContinue={() => {
+          //navigation
         }}
-        bg={'#f2f2f2'}
-        height={80}
+        activeDotColor={'red'}
+        // nonActiveDotColor={'#f2f2f2'}
       /> */}
-      <CustomButton/>
-      <CustomTextinput isBad={'Please Enter Something....'} placeholder={'Enter Comment Here...'} border={1}/>
-    </View>
+      <Header
+        title={'Home'}
+        rightIconStyle={{width:30,height:30}}
+        leftIconStyle={{width:30,height:30}}
+        onClickRight={(x)=>{
+          console.log(x)
+        }}
+        onClickLeft={()=>{
+          
+        }}
+        leftIcon={require('./menu.png')}
+        rightIcons={[require('./loupe.png'), require('./bell.png')]}
+      />
+    </SafeAreaView>
   );
 };
 
