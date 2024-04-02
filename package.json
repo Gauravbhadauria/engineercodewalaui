@@ -10,6 +10,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "@engineercodewala/components": "^1.0.1",
+    "@engineercodewala/ui": "^1.0.0",
     "react": "18.2.0",
     "react-native": "0.73.5"
   },
